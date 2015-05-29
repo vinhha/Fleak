@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F0AAA683-9CD6-4871-BF3C-EB96731114FB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FFS</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8B06ABF921DDB46F9C4C0EB8E1EE6319A3F3225B</key>
+		<string>https://github.com/Gamrix/ffs.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FFS.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8B06ABF921DDB46F9C4C0EB8E1EE6319A3F3225B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Gamrix/ffs.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8B06ABF921DDB46F9C4C0EB8E1EE6319A3F3225B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8B06ABF921DDB46F9C4C0EB8E1EE6319A3F3225B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FFS</string>
+		</dict>
+	</array>
+</dict>
+</plist>
