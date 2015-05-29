@@ -120,9 +120,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
                                 options:0
                                 metrics:metrics
                             views:views]];
-        [view setBackgroundColor:[UIColor whiteColor]];
+    [view setBackgroundColor:[UIColor whiteColor]];
 
-        return view;
+    return view;
 }
 
 
