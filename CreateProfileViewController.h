@@ -11,5 +11,6 @@
 @interface CreateProfileViewController : UIViewController
 
 - (IBAction)cancel:(id)sender;
+- (IBAction)FBSignUp:(id)sender;
 
 @end

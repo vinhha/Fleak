@@ -7,6 +7,8 @@
 //
 
 #import "CreateProfileViewController.h"
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
+
 
 @interface CreateProfileViewController ()
 
@@ -36,7 +38,21 @@
 
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES  completion:nil];
+}
 
+- (IBAction)FBSignUp:(id)sender {
+    
+    NSArray *permissions = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"]; //Arbitrary Permissions
+    [PFFacebookUtils logInInBackgroundWithReadPermissions:permissions block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+        } else if (user.isNew) {
+            NSLog(@"User signed up and logged in through Facebook!");
+        } else {
+            NSLog(@"User logged in through Facebook!");
+        }
+    }];
+    
 }
 
 

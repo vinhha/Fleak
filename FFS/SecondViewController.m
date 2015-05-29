@@ -10,9 +10,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 @interface SecondViewController ()
-
 @end
-
 @implementation SecondViewController 
 
 - (void)viewDidLoad {
@@ -39,6 +37,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
+    [super viewWillAppear:YES];
+    
     PFUser *user = [PFUser currentUser];
     
     if (!user) {
@@ -55,6 +55,27 @@
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:self.imagePicker animated:NO completion:nil];
     }
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES]; 
+    PFUser *user = [PFUser currentUser];
+    
+    if (!user) {
+        [self performSegueWithIdentifier:@"createProfile" sender:self];
+        //***********************
+        // Create Account STUB!!!
+        //***********************
+    }
+    else{
+        self.imagePicker = [[UIImagePickerController alloc] init];
+        self.imagePicker.delegate = self;
+        self.imagePicker.allowsEditing = NO;
+        self.imagePicker.navigationController.navigationBar.translucent = NO;
+        self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:self.imagePicker animated:NO completion:nil];
+    }
+
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -119,11 +140,6 @@
     }];
     
 }
-
-
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

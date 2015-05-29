@@ -35,6 +35,10 @@
 		D3163B3A1B184F7E00556628 /* PostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163B391B184F7E00556628 /* PostsViewController.m */; };
 		D3163B3D1B18504300556628 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163B3C1B18504300556628 /* CardView.m */; };
 		D3163B3F1B185F9500556628 /* CardContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3163B3E1B185F9500556628 /* CardContentView.xib */; };
+		D3163CC71B1877D900556628 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163C381B1877D800556628 /* FBSDKCoreKit.framework */; };
+		D3163CC81B1877D900556628 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163C391B1877D800556628 /* FBSDKLoginKit.framework */; };
+		D3163CC91B1877D900556628 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163C3A1B1877D800556628 /* FBSDKShareKit.framework */; };
+		D3163CE41B18D47A00556628 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163CE31B18D47A00556628 /* ParseFacebookUtilsV4.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +92,10 @@
 		D3163B3B1B18504300556628 /* CardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
 		D3163B3C1B18504300556628 /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
 		D3163B3E1B185F9500556628 /* CardContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardContentView.xib; sourceTree = "<group>"; };
+		D3163C381B1877D800556628 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		D3163C391B1877D800556628 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		D3163C3A1B1877D800556628 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		D3163CE31B18D47A00556628 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +104,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3163B0E1B1818E200556628 /* AudioToolbox.framework in Frameworks */,
+				D3163CC71B1877D900556628 /* FBSDKCoreKit.framework in Frameworks */,
 				D3163B0F1B1818E200556628 /* CFNetwork.framework in Frameworks */,
+				D3163CC91B1877D900556628 /* FBSDKShareKit.framework in Frameworks */,
 				D3163B281B182DA300556628 /* ParseUI.framework in Frameworks */,
+				D3163CC81B1877D900556628 /* FBSDKLoginKit.framework in Frameworks */,
 				D3163B101B1818E200556628 /* CoreGraphics.framework in Frameworks */,
 				D3163B1C1B1819D800556628 /* Bolts.framework in Frameworks */,
 				D3163B111B1818E200556628 /* CoreLocation.framework in Frameworks */,
@@ -106,6 +117,7 @@
 				D3163B131B1818E200556628 /* libz.dylib in Frameworks */,
 				D3163B141B1818E200556628 /* MobileCoreServices.framework in Frameworks */,
 				D3163B151B1818E200556628 /* QuartzCore.framework in Frameworks */,
+				D3163CE41B18D47A00556628 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				D3163B161B1818E200556628 /* Security.framework in Frameworks */,
 				D3163B171B1818E200556628 /* StoreKit.framework in Frameworks */,
 				D3163B181B1818E200556628 /* SystemConfiguration.framework in Frameworks */,
@@ -195,6 +207,10 @@
 		D3163B191B1819AD00556628 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3163CE31B18D47A00556628 /* ParseFacebookUtilsV4.framework */,
+				D3163C381B1877D800556628 /* FBSDKCoreKit.framework */,
+				D3163C391B1877D800556628 /* FBSDKLoginKit.framework */,
+				D3163C3A1B1877D800556628 /* FBSDKShareKit.framework */,
 				D3163B271B182DA300556628 /* ParseUI.framework */,
 				D3163B1A1B1819D800556628 /* Bolts.framework */,
 				D3163B1B1B1819D800556628 /* Parse.framework */,
@@ -273,6 +289,7 @@
 				TargetAttributes = {
 					D3163AD61B18179A00556628 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 89N54C8LR3;
 					};
 					D3163AF21B18179A00556628 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -411,7 +428,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -448,7 +465,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -459,13 +476,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/vinhha/Downloads/parse-library-1.7.4",
+					"$(PROJECT_DIR)/FacebookSDK",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FFS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -473,13 +495,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/vinhha/Downloads/parse-library-1.7.4",
+					"$(PROJECT_DIR)/FacebookSDK",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FFS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

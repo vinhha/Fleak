@@ -16,5 +16,7 @@
 @property (strong, nonatomic) UIImage *image;
 @property (strong, nonatomic) IBOutlet UIImageView *postPic;
 
+
+
 @end
 

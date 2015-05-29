@@ -18,13 +18,20 @@
 
 @property (nonatomic) BOOL loadCardFromXib;
 
+
+
 @end
 
 @implementation PostsViewController
 
+BOOL locationStarted = FALSE;
+@synthesize locationManager = _locationManager;
+@synthesize currentLocation = _currentLocation;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    [self startLocationManager]; 
     //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     // Do any additional setup after loading the view.
@@ -123,6 +130,73 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     [view setBackgroundColor:[UIColor whiteColor]];
 
     return view;
+}
+
+#pragma mar - Location Services!!! 
+
+- (void) startLocationManager{
+    
+    if (!_locationManager) {
+        
+        NSLog(@"hellja;sdfk");
+        
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+        {
+            [_locationManager requestAlwaysAuthorization];
+        }
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        _locationManager.delegate = self;
+        [_locationManager startUpdatingLocation];
+        
+    }
+    
+//    NSLog(@"%@", self.currentLocation);
+//    
+//    PFGeoPoint *currentLocation =  [PFGeoPoint geoPointWithLocation:self.currentLocation];
+//    PFUser *currentUser = [PFUser currentUser];
+//    [currentUser setObject:currentLocation forKey:@"location"];
+//    [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (!error) {
+//            NSLog(@"Got Location");
+//            [self reloadInputViews];
+//            [self stopLocationManager];
+//        }
+//    }];
+
+}
+
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    
+    NSLog(@"%@", [locations lastObject]);
+    
+    self.currentLocation  = [locations lastObject];
+    
+    PFGeoPoint *myLocation =  [PFGeoPoint geoPointWithLocation:self.currentLocation];
+    PFUser *currentUser = [PFUser currentUser];
+    [currentUser setObject:myLocation forKey:@"location"];
+    [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            NSLog(@"Got Location");
+            [self stopLocationManager];
+        }
+    }];
+}
+
+- (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"%@", error);
+    
+    if ([error code] !=kCLErrorLocationUnknown) {
+        [self stopLocationManager];
+    }
+    
+}
+
+- (void) stopLocationManager {
+    
+    [_locationManager stopUpdatingLocation];
+    NSLog(@"Got blej");
+    
 }
 
 

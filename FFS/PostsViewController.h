@@ -7,8 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import <Parse/Parse.h>
 
-@interface PostsViewController : UIViewController <UINavigationControllerDelegate>
+@interface PostsViewController : UIViewController <UINavigationControllerDelegate, CLLocationManagerDelegate>
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocation *currentLocation;
+@property (strong, nonatomic) PFGeoPoint *myLocation;
+@property (strong, nonatomic) NSNumber *locationTag;
+
+
+- (void) startLocationManager;
+- (void) stopLocationManager;
 
 @end
