@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  Post_Cell.h
 //  FFS
 //
 //  Created by vinh ha on 5/28/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
-
+@interface Post_Cell : UITableViewCell
 
 @end
-
