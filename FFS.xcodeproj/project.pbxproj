@@ -27,8 +27,6 @@
 		D3163B181B1818E200556628 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163B0D1B1818E200556628 /* SystemConfiguration.framework */; };
 		D3163B1C1B1819D800556628 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163B1A1B1819D800556628 /* Bolts.framework */; };
 		D3163B1D1B1819D800556628 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163B1B1B1819D800556628 /* Parse.framework */; };
-		D3163B201B181C5C00556628 /* PostsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163B1F1B181C5C00556628 /* PostsView.m */; };
-		D3163B231B181D4A00556628 /* Post_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163B221B181D4A00556628 /* Post_Cell.m */; };
 		D3163B261B18289A00556628 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163B251B18289A00556628 /* HomeViewController.m */; };
 		D3163B281B182DA300556628 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163B271B182DA300556628 /* ParseUI.framework */; };
 		D3163B2E1B183B4100556628 /* CreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163B2D1B183B4100556628 /* CreateProfileViewController.m */; };
@@ -76,10 +74,6 @@
 		D3163B0D1B1818E200556628 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D3163B1A1B1819D800556628 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Users/vinhha/Downloads/parse-library-1.7.4/Bolts.framework"; sourceTree = "<group>"; };
 		D3163B1B1B1819D800556628 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Users/vinhha/Downloads/parse-library-1.7.4/Parse.framework"; sourceTree = "<group>"; };
-		D3163B1E1B181C5C00556628 /* PostsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsView.h; sourceTree = "<group>"; };
-		D3163B1F1B181C5C00556628 /* PostsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsView.m; sourceTree = "<group>"; };
-		D3163B211B181D4A00556628 /* Post_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post_Cell.h; sourceTree = "<group>"; };
-		D3163B221B181D4A00556628 /* Post_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post_Cell.m; sourceTree = "<group>"; };
 		D3163B241B18289A00556628 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D3163B251B18289A00556628 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D3163B271B182DA300556628 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = "../../../Users/vinhha/Downloads/parse-library-1.7.4/ParseUI.framework"; sourceTree = "<group>"; };
@@ -161,10 +155,6 @@
 				D3163AE51B18179A00556628 /* SecondViewController.m */,
 				D3163B2C1B183B4100556628 /* CreateProfileViewController.h */,
 				D3163B2D1B183B4100556628 /* CreateProfileViewController.m */,
-				D3163B1E1B181C5C00556628 /* PostsView.h */,
-				D3163B1F1B181C5C00556628 /* PostsView.m */,
-				D3163B211B181D4A00556628 /* Post_Cell.h */,
-				D3163B221B181D4A00556628 /* Post_Cell.m */,
 				D3163AE71B18179A00556628 /* Main.storyboard */,
 				D3163B3E1B185F9500556628 /* CardContentView.xib */,
 				D3163B241B18289A00556628 /* HomeViewController.h */,
@@ -340,10 +330,8 @@
 				D3163AE01B18179A00556628 /* AppDelegate.m in Sources */,
 				D3163ADD1B18179A00556628 /* main.m in Sources */,
 				D3163B371B184F5200556628 /* ZLSwipeableView.m in Sources */,
-				D3163B201B181C5C00556628 /* PostsView.m in Sources */,
 				D3163B2E1B183B4100556628 /* CreateProfileViewController.m in Sources */,
 				D3163B261B18289A00556628 /* HomeViewController.m in Sources */,
-				D3163B231B181D4A00556628 /* Post_Cell.m in Sources */,
 				D3163B3A1B184F7E00556628 /* PostsViewController.m in Sources */,
 				D3163B361B184F5200556628 /* ZLPanGestureRecognizer.m in Sources */,
 			);
