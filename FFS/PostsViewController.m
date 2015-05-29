@@ -24,6 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:1.0 blue:150.0/255.0 alpha:.75];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
     // Do any additional setup after loading the view.
 }
 
@@ -85,10 +88,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 - (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView {
     
-    
         CardView *view = [[CardView alloc] initWithFrame:swipeableView.bounds];
-        
-        if (self.loadCardFromXib) {
+        //if (self.loadCardFromXib) {
             UIView *contentView =
             [[[NSBundle mainBundle] loadNibNamed:@"CardContentView"
                                            owner:self
@@ -115,16 +116,17 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
                                   options:0
                                   metrics:metrics
                                 views:views]];
-    } else {
-        UITextView *textView =
-        [[UITextView alloc] initWithFrame:view.bounds];
-        textView.text = @"This UITextView was created programmatically.";
-        textView.backgroundColor = [UIColor whiteColor];
-        textView.font = [UIFont systemFontOfSize:24];
-        textView.editable = NO;
-        textView.selectable = NO;
-        [view addSubview:textView];
-    }
+    [view setBackgroundColor:[UIColor whiteColor]];
+//    } else {
+//        UITextView *textView =
+//        [[UITextView alloc] initWithFrame:view.bounds];
+//        textView.text = @"This UITextView was created programmatically.";
+//        textView.backgroundColor = [UIColor whiteColor];
+//        textView.font = [UIFont systemFontOfSize:24];
+//        textView.editable = NO;
+//        textView.selectable = NO;
+//        [view addSubview:textView];
+//    }
     
     return view;
 }

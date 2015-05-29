@@ -302,7 +302,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PNe-mC-Bje" userLabel="ZLSwipeableView" customClass="ZLSwipeableView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="PNe-mC-Bje" secondAttribute="height" multiplier="95:167" id="CdO-ve-zSr"/>
                                 </constraints>
@@ -330,10 +329,10 @@
                                 <exclude reference="PNe-mC-Bje"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="qfl-VK-yly"/>
                                 <exclude reference="FHv-lq-jKg"/>
                                 <exclude reference="ZDF-Qw-U0U"/>
                                 <exclude reference="neh-sV-PEb"/>
-                                <exclude reference="qfl-VK-yly"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -341,10 +340,10 @@
                                 <include reference="PNe-mC-Bje"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="qfl-VK-yly"/>
                                 <include reference="FHv-lq-jKg"/>
                                 <include reference="ZDF-Qw-U0U"/>
                                 <include reference="neh-sV-PEb"/>
-                                <include reference="qfl-VK-yly"/>
                             </mask>
                         </variation>
                     </view>

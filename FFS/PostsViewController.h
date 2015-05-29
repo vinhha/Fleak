@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface PostsViewController : UIViewController
+@interface PostsViewController : UIViewController <UINavigationControllerDelegate>
 
 @end

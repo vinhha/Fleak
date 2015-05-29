@@ -36,6 +36,7 @@
 		D3163B371B184F5200556628 /* ZLSwipeableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163B351B184F5200556628 /* ZLSwipeableView.m */; };
 		D3163B3A1B184F7E00556628 /* PostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163B391B184F7E00556628 /* PostsViewController.m */; };
 		D3163B3D1B18504300556628 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163B3C1B18504300556628 /* CardView.m */; };
+		D3163B3F1B185F9500556628 /* CardContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3163B3E1B185F9500556628 /* CardContentView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		D3163B391B184F7E00556628 /* PostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsViewController.m; sourceTree = "<group>"; };
 		D3163B3B1B18504300556628 /* CardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
 		D3163B3C1B18504300556628 /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
+		D3163B3E1B185F9500556628 /* CardContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardContentView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				D3163B211B181D4A00556628 /* Post_Cell.h */,
 				D3163B221B181D4A00556628 /* Post_Cell.m */,
 				D3163AE71B18179A00556628 /* Main.storyboard */,
+				D3163B3E1B185F9500556628 /* CardContentView.xib */,
 				D3163B241B18289A00556628 /* HomeViewController.h */,
 				D3163B251B18289A00556628 /* HomeViewController.m */,
 				D3163AEA1B18179A00556628 /* Images.xcassets */,
@@ -311,6 +314,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3163B3F1B185F9500556628 /* CardContentView.xib in Resources */,
 				D3163AE91B18179A00556628 /* Main.storyboard in Resources */,
 				D3163AEE1B18179A00556628 /* LaunchScreen.xib in Resources */,
 				D3163AEB1B18179A00556628 /* Images.xcassets in Resources */,
