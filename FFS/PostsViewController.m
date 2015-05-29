@@ -24,8 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:1.0 blue:150.0/255.0 alpha:.75];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     // Do any additional setup after loading the view.
 }
@@ -90,45 +90,39 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     
         CardView *view = [[CardView alloc] initWithFrame:swipeableView.bounds];
         //if (self.loadCardFromXib) {
-            UIView *contentView =
-            [[[NSBundle mainBundle] loadNibNamed:@"CardContentView"
-                                           owner:self
-                                         options:nil] objectAtIndex:0];
-            contentView.translatesAutoresizingMaskIntoConstraints = NO;
-            [view addSubview:contentView];
-            
-            // This is important:
-            // https://github.com/zhxnlai/ZLSwipeableView/issues/9
-            NSDictionary *metrics = @{
-                                      @"height" : @(view.bounds.size.height),
-                                      @"width" : @(view.bounds.size.width)
-                                      };
-            NSDictionary *views = NSDictionaryOfVariableBindings(contentView);
-            [view addConstraints:
-             [NSLayoutConstraint
-              constraintsWithVisualFormat:@"H:|[contentView(width)]"
-              options:0
-              metrics:metrics
-              views:views]];
-            [view addConstraints:[NSLayoutConstraint
-                                  constraintsWithVisualFormat:
-                                  @"V:|[contentView(height)]"
-                                  options:0
-                                  metrics:metrics
-                                views:views]];
-    [view setBackgroundColor:[UIColor whiteColor]];
-//    } else {
-//        UITextView *textView =
-//        [[UITextView alloc] initWithFrame:view.bounds];
-//        textView.text = @"This UITextView was created programmatically.";
-//        textView.backgroundColor = [UIColor whiteColor];
-//        textView.font = [UIFont systemFontOfSize:24];
-//        textView.editable = NO;
-//        textView.selectable = NO;
-//        [view addSubview:textView];
-//    }
+        UIView *contentView =
+        [[[NSBundle mainBundle] loadNibNamed:@"CardContentView"
+                                        owner:self
+                                        options:nil] objectAtIndex:0];
+        contentView.translatesAutoresizingMaskIntoConstraints = NO;
+        [view addSubview:contentView];
     
-    return view;
+        //**********************
+        // ADD UIIMAGEVIEW TO CONTENTVIEW AS SUBVIEW WITH OTHER USER INFORMATION.
+        //**********************
+    
+        // This is important:
+        // https://github.com/zhxnlai/ZLSwipeableView/issues/9
+        NSDictionary *metrics = @{
+                                    @"height" : @(view.bounds.size.height),
+                                    @"width" : @(view.bounds.size.width)
+                                    };
+        NSDictionary *views = NSDictionaryOfVariableBindings(contentView);
+        [view addConstraints:
+            [NSLayoutConstraint
+            constraintsWithVisualFormat:@"H:|[contentView(width)]"
+            options:0
+            metrics:metrics
+            views:views]];
+        [view addConstraints:[NSLayoutConstraint
+                                constraintsWithVisualFormat:
+                                @"V:|[contentView(height)]"
+                                options:0
+                                metrics:metrics
+                            views:views]];
+        [view setBackgroundColor:[UIColor whiteColor]];
+
+        return view;
 }
 
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,21 +11,89 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This UITextView was loaded from Xib and positioned using autolayout." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bX-Rt-AD4">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="skyline" translatesAutoresizingMaskIntoConstraints="NO" id="E3M-IA-JrC">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="311"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="E3M-IA-JrC" secondAttribute="height" multiplier="1:1" id="AhI-HG-ZfM"/>
+                        <constraint firstAttribute="width" secondItem="E3M-IA-JrC" secondAttribute="height" multiplier="1:1" id="Auo-bx-iUg"/>
+                        <constraint firstAttribute="width" secondItem="E3M-IA-JrC" secondAttribute="height" multiplier="367:378" id="vi9-4d-Zxb"/>
+                        <constraint firstAttribute="width" secondItem="E3M-IA-JrC" secondAttribute="height" multiplier="1:2" id="zXa-OY-8Mo"/>
+                        <constraint firstAttribute="width" secondItem="E3M-IA-JrC" secondAttribute="height" multiplier="1:1" id="zh1-0q-MGG"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="AhI-HG-ZfM"/>
+                            <exclude reference="Auo-bx-iUg"/>
+                            <exclude reference="vi9-4d-Zxb"/>
+                            <exclude reference="zXa-OY-8Mo"/>
+                            <exclude reference="zh1-0q-MGG"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="AhI-HG-ZfM"/>
+                            <exclude reference="Auo-bx-iUg"/>
+                            <exclude reference="vi9-4d-Zxb"/>
+                            <exclude reference="zXa-OY-8Mo"/>
+                            <exclude reference="zh1-0q-MGG"/>
+                        </mask>
+                    </variation>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="7bX-Rt-AD4" secondAttribute="bottom" id="ChC-X5-YTJ"/>
-                <constraint firstAttribute="trailing" secondItem="7bX-Rt-AD4" secondAttribute="trailing" id="EMC-p8-NEm"/>
-                <constraint firstItem="7bX-Rt-AD4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eAZ-R4-SCx"/>
-                <constraint firstItem="7bX-Rt-AD4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uh9-Ta-XFY"/>
+                <constraint firstAttribute="trailing" secondItem="E3M-IA-JrC" secondAttribute="trailing" constant="8" id="0Bz-pQ-lXM"/>
+                <constraint firstItem="E3M-IA-JrC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="1yI-AR-0N8"/>
+                <constraint firstItem="E3M-IA-JrC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="14" id="8dE-mq-XJJ"/>
+                <constraint firstItem="E3M-IA-JrC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="96c-Ga-TiR"/>
+                <constraint firstAttribute="trailing" secondItem="E3M-IA-JrC" secondAttribute="trailing" constant="14" id="C4r-k5-bkm"/>
+                <constraint firstItem="E3M-IA-JrC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="KAS-xp-04q"/>
+                <constraint firstAttribute="trailing" secondItem="E3M-IA-JrC" secondAttribute="trailing" constant="19" id="LE5-YK-5za"/>
+                <constraint firstItem="E3M-IA-JrC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Oiz-yr-DUw"/>
+                <constraint firstItem="E3M-IA-JrC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="Oxg-R0-QDr"/>
+                <constraint firstItem="E3M-IA-JrC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QcL-Gx-tpq"/>
+                <constraint firstItem="E3M-IA-JrC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="14" id="cf6-Qb-sKf"/>
+                <constraint firstAttribute="trailing" secondItem="E3M-IA-JrC" secondAttribute="trailing" id="jY7-u0-gvQ"/>
+                <constraint firstAttribute="bottom" secondItem="E3M-IA-JrC" secondAttribute="bottom" id="vNV-ah-jro"/>
             </constraints>
-            <point key="canvasLocation" x="430" y="433"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="0Bz-pQ-lXM"/>
+                    <exclude reference="1yI-AR-0N8"/>
+                    <exclude reference="8dE-mq-XJJ"/>
+                    <exclude reference="96c-Ga-TiR"/>
+                    <exclude reference="C4r-k5-bkm"/>
+                    <exclude reference="KAS-xp-04q"/>
+                    <exclude reference="LE5-YK-5za"/>
+                    <exclude reference="Oiz-yr-DUw"/>
+                    <exclude reference="Oxg-R0-QDr"/>
+                    <exclude reference="QcL-Gx-tpq"/>
+                    <exclude reference="cf6-Qb-sKf"/>
+                    <exclude reference="jY7-u0-gvQ"/>
+                    <exclude reference="vNV-ah-jro"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <exclude reference="0Bz-pQ-lXM"/>
+                    <exclude reference="1yI-AR-0N8"/>
+                    <exclude reference="8dE-mq-XJJ"/>
+                    <exclude reference="96c-Ga-TiR"/>
+                    <include reference="C4r-k5-bkm"/>
+                    <exclude reference="KAS-xp-04q"/>
+                    <exclude reference="LE5-YK-5za"/>
+                    <exclude reference="Oiz-yr-DUw"/>
+                    <include reference="Oxg-R0-QDr"/>
+                    <exclude reference="QcL-Gx-tpq"/>
+                    <include reference="cf6-Qb-sKf"/>
+                    <exclude reference="jY7-u0-gvQ"/>
+                    <exclude reference="vNV-ah-jro"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="421" y="489"/>
         </view>
     </objects>
+    <resources>
+        <image name="skyline" width="500" height="750"/>
+    </resources>
 </document>
