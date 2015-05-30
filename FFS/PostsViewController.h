@@ -15,10 +15,12 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (strong, nonatomic) PFGeoPoint *myLocation;
-@property (strong, nonatomic) NSNumber *locationTag;
++(CLLocation*)location;
 
 
-- (void) startLocationManager;
-- (void) stopLocationManager;
+@property (strong, nonatomic) NSArray *objects;
+@property (nonatomic) NSUInteger objectIndex;
+-(void)loadObjects;
+
 
 @end

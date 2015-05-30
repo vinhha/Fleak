@@ -14,6 +14,20 @@
 
 @implementation HomeViewController
 
+- (id) initWithCoder:(NSCoder *)aCoder {
+    
+    self = [super initWithCoder:aCoder];
+    if (self) {
+        
+        self.parseClassName = @"_User";
+        self.textKey = @"_post";
+        self.pullToRefreshEnabled = YES;
+    }
+    
+    return self;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

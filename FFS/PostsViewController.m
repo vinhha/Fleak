@@ -13,8 +13,8 @@
 @interface PostsViewController () <ZLSwipeableViewDataSource,
                                     ZLSwipeableViewDelegate, UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet ZLSwipeableView *swipeableView;
-@property (nonatomic, strong) NSArray *colors;
-@property (nonatomic) NSUInteger colorIndex;
+//@property (nonatomic, strong) NSArray *colors;
+//@property (nonatomic) NSUInteger colorIndex;
 
 @property (nonatomic) BOOL loadCardFromXib;
 
@@ -22,15 +22,17 @@
 
 @end
 
+static CLLocation *location = nil;
+
 @implementation PostsViewController
 
-BOOL locationStarted = FALSE;
 @synthesize locationManager = _locationManager;
 @synthesize currentLocation = _currentLocation;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.swipeableView.delegate = self;
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -60,7 +62,7 @@ BOOL locationStarted = FALSE;
 clickedButtonAtIndex:(NSInteger)buttonIndex {
     self.loadCardFromXib = buttonIndex == 1;
     
-    self.colorIndex = 0;
+    self.objectIndex = 0;
     
     [self.swipeableView discardAllSwipeableViews];
     [self.swipeableView loadNextSwipeableViewsIfNeeded];
@@ -102,20 +104,34 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 #pragma mark - ZLSwipeableViewDataSource
 
 - (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView {
-    
+    if (self.objectIndex < self.objects.count) {
+        
         CardView *view = [[CardView alloc] initWithFrame:swipeableView.bounds];
         //if (self.loadCardFromXib) {
+        self.objectIndex++;
         UIView *contentView =
         [[[NSBundle mainBundle] loadNibNamed:@"CardContentView"
                                         owner:self
                                         options:nil] objectAtIndex:0];
         contentView.translatesAutoresizingMaskIntoConstraints = NO;
+        PFFile *imageFile = [[self.objects objectAtIndex:self.objectIndex] objectForKey:@"file"];
+        if (imageFile == nil) {
+        }
+        [imageFile getDataInBackgroundWithBlock:^(NSData *result, NSError *error) {
+            if (!error) {
+                UIImage *img = [UIImage imageWithData:result];
+                UIImageView *postImage = [[UIImageView alloc] initWithImage:img];
+                postImage.frame = CGRectMake(14,14, 372, 372);
+                [contentView addSubview:postImage];
+            }
+        }];
+
         [view addSubview:contentView];
-    
+        
         //**********************
         // ADD UIIMAGEVIEW TO CONTENTVIEW AS SUBVIEW WITH OTHER USER INFORMATION.
         //**********************
-    
+        
         // This is important:
         // https://github.com/zhxnlai/ZLSwipeableView/issues/9
         NSDictionary *metrics = @{
@@ -135,18 +151,27 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
                                 options:0
                                 metrics:metrics
                             views:views]];
-    [view setBackgroundColor:[UIColor whiteColor]];
-
-    return view;
+        [view setBackgroundColor:[UIColor whiteColor]];
+        
+        return view;
+    }
+    return nil;
 }
 
-#pragma mar - Location Services!!!
++(CLLocation*)location {
+    return location;
+}
+
+
+#pragma mark - Location Services!!!
 
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     
     NSLog(@"%@", [locations lastObject]);
     
     self.currentLocation  = [locations lastObject];
+    location = self.currentLocation;
+    self.myLocation = [PFGeoPoint geoPointWithLocation:self.currentLocation];
 //    
 //    PFGeoPoint *myLocation =  [PFGeoPoint geoPointWithLocation:self.currentLocation];
 //    PFUser *currentUser = [PFUser currentUser];
@@ -159,6 +184,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 //    }];
     if (self.currentLocation) {
         [_locationManager stopUpdatingLocation];
+        [self loadObjects];
     }
 }
 
@@ -171,5 +197,19 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     
 }
 
+#pragma mark - Load objects
 
+-(void)loadObjects{
+    self.objectIndex = 0;
+    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+    // Interested in locations near user.
+    [query whereKey:@"location" nearGeoPoint:self.myLocation];
+    // Limit what could be a lot of points.
+    query.limit = 250;
+    // Final list of objects
+    self.objects = [query findObjects];
+    [self.swipeableView discardAllSwipeableViews];
+    [self.swipeableView loadNextSwipeableViewsIfNeeded];
+
+}
 @end
