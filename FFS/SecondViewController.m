@@ -10,6 +10,10 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 @interface SecondViewController ()
+
+@property(strong, nonatomic) NSString *email;
+@property(strong) NSNumber* tag;
+
 @end
 @implementation SecondViewController
 
@@ -19,8 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _tag = [NSNumber numberWithInt:0];
     self.navigationController.navigationBar.hidden = YES;
-    self.postPic.frame = CGRectMake(0, 0, 0, 0); 
     
     PFUser *user = [PFUser currentUser];
     if (!user) {
@@ -49,11 +53,9 @@
     PFUser *user = [PFUser currentUser];
     if (!user) {
         self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:0];
-        //***********************
-        // Create Account STUB!!!
-        //***********************
+
     }
-    else if (!self.postPic){
+    else if (!self.postPic && (_tag == [NSNumber numberWithInt:0])){
         self.imagePicker = [[UIImagePickerController alloc] init];
         self.imagePicker.delegate = self;
         self.imagePicker.allowsEditing = YES;
@@ -61,6 +63,10 @@
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:self.imagePicker animated:NO completion:nil];
     }
+    PFQuery *query = [PFUser query];
+    [query getObjectInBackgroundWithId:[[PFUser currentUser] objectId] block:^(PFObject *object, NSError *error) {        
+        self.email = object[@"Email"];
+    }];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -68,11 +74,19 @@
     PFUser *user = [PFUser currentUser];
     if (!user) {
         [self performSegueWithIdentifier:@"createProfile" sender:self];
-        //***********************
-        // Create Account STUB!!!
-        //***********************
     }
+    _tag = [NSNumber numberWithInt:0];
+
 }
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    self.postPic.image = nil;
+    self.titulo.text = nil;
+    self.price.text = nil;
+    _tag = [NSNumber numberWithInt:0];
+}
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
@@ -81,14 +95,18 @@
     [mediaType isEqualToString:(NSString *)kUTTypeImage];
     // A photo was taken/selected!
     self.image = [info objectForKey:UIImagePickerControllerEditedImage];
-    self.postPic.image = self.image;
+    //self.postPic.image = self.image;
+    _tag = [NSNumber numberWithInt:1];
     [self dismissViewControllerAnimated:YES completion:nil];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     //[self uploadMessage];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissViewControllerAnimated:NO completion:nil];
+    _tag = [NSNumber numberWithInt:0];
+    self.postPic = nil;
+    self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:0];
+    [self dismissViewControllerAnimated:YES completion:nil];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
 }
@@ -99,11 +117,12 @@
     NSString *fileName;
     NSString *fileType;
     
+    
     UIImage *newImage = [self resizeImage:self.image toWidth:320.0f andHeight:320.0f];
     fileData = UIImagePNGRepresentation(newImage);
     fileName = @"image.png";
     fileType = @"image";
-    
+    NSLog(@"sent the data");
     PFFile *file = [PFFile fileWithName:fileName data:fileData];
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {
@@ -116,14 +135,12 @@
             self.myLocation = [PFGeoPoint geoPointWithLocation:_currentLocation];
             PFObject *image = [PFObject objectWithClassName:@"Posts"];
             [image setObject:[[PFUser currentUser] objectId] forKey:@"Poster"];
-            //***********************
-            //Append location/contact preferences STUB!!!!
-            //***********************
             [image setObject:file forKey:@"file"];
             [image setObject:fileType forKey:@"fileType"];
             [image setObject:self.myLocation forKey:@"location"];
             [image setObject:self.titulo.text forKey:@"title"];
             [image setObject:self.price.text forKey:@"price"];
+            [image setObject:self.email forKey:@"email"]; 
             [image saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (error) {
                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"An error occurred!"
@@ -133,6 +150,7 @@
                 }
                 else {
                     // Everything was successful!
+                    self.postPic = nil;
                     self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:0];
 
                 }
@@ -209,5 +227,8 @@
     [textField resignFirstResponder];
     return NO;
 }
+
+
+
 
 @end

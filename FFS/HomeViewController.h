@@ -7,7 +7,10 @@
 //
 
 #import <ParseUI/ParseUI.h>
+#import <Parse/Parse.h>
 
-@interface HomeViewController : PFQueryTableViewController
+@interface HomeViewController : PFQueryTableViewController <UIAlertViewDelegate>
+
+
 
 @end

@@ -22,5 +22,6 @@
 @property (nonatomic) NSUInteger objectIndex;
 -(void)loadObjects;
 
-
+- (IBAction)reload:(id)sender;
+- (IBAction)message:(id)sender;
 @end

@@ -24,6 +24,7 @@
 
 - (UIImage *)resizeImage:(UIImage *)image toWidth:(float)width andHeight:(float)height;
 
+
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (strong, nonatomic) PFGeoPoint *myLocation;

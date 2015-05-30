@@ -8,6 +8,7 @@
 
 #import "CreateProfileViewController.h"
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 
 @interface CreateProfileViewController ()
@@ -42,14 +43,36 @@
 
 - (IBAction)FBSignUp:(id)sender {
     
-    NSArray *permissions = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"]; //Arbitrary Permissions
+    NSArray *permissions = @[ @"email" ];
     [PFFacebookUtils logInInBackgroundWithReadPermissions:permissions block:^(PFUser *user, NSError *error) {
         if (!user) {
-            NSLog(@"Uh oh. The user cancelled the Facebook login.");
         } else if (user.isNew) {
-            NSLog(@"User signed up and logged in through Facebook!");
+            FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil];
+            [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                if (!error) {
+                    // result is a dictionary with the user's Facebook data
+                    NSDictionary *userData = (NSDictionary *)result;
+                    
+                    NSString *facebookID = userData[@"id"];
+                    NSString *name = userData[@"name"];
+                    NSString *email = userData[@"email"];
+                    
+                    PFUser *currentUser = [PFUser currentUser];
+                    [currentUser setObject:facebookID forKey:@"FacebookID"];
+                    [currentUser setObject:name forKey:@"Name"];
+                    [currentUser setObject:email forKey:@"Email"];
+                    [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if (!error) {
+                            NSLog(@"Gotttt emm on Fleak!");
+                            [self dismissViewControllerAnimated:YES completion:nil];
+                        }
+                    }];
+
+
+                }
+            }];
+            
         } else {
-            NSLog(@"User logged in through Facebook!");
         }
     }];
     

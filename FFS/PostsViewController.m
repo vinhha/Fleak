@@ -8,7 +8,10 @@
 
 #import "PostsViewController.h"
 #import "ZLSwipeableView.h"
+#import <FBSDKMessengerShareKit/FBSDKMessengerShareKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
 #import "CardView.h"
+#import "SecondViewController.h"
 
 @interface PostsViewController () <ZLSwipeableViewDataSource,
                                     ZLSwipeableViewDelegate, UIActionSheetDelegate>
@@ -31,7 +34,10 @@ static CLLocation *location = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0/255.0 green: 191.0/255.0 blue:143.0/255.0 alpha:1.0];
+    self.navigationController.navigationBar.topItem.title = @"f l e a k";
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Avenir" size:23.0]};
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor]; 
     self.swipeableView.delegate = self;
     
     self.locationManager = [[CLLocationManager alloc] init];
@@ -42,9 +48,15 @@ static CLLocation *location = nil;
     }
     [self.locationManager startUpdatingLocation];
     
-    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
+    
     // Do any additional setup after loading the view.
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [_locationManager startUpdatingLocation];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -114,18 +126,44 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
                                         owner:self
                                         options:nil] objectAtIndex:0];
         contentView.translatesAutoresizingMaskIntoConstraints = NO;
-        PFFile *imageFile = [[self.objects objectAtIndex:self.objectIndex] objectForKey:@"file"];
+        PFFile *imageFile = [[self.objects objectAtIndex:self.objectIndex-1] objectForKey:@"file"];
         if (imageFile == nil) {
         }
         [imageFile getDataInBackgroundWithBlock:^(NSData *result, NSError *error) {
             if (!error) {
                 UIImage *img = [UIImage imageWithData:result];
                 UIImageView *postImage = [[UIImageView alloc] initWithImage:img];
-                postImage.frame = CGRectMake(14,14, 372, 372);
+                postImage.frame = CGRectMake(13,13, 275, 275);
+                postImage.layer.cornerRadius = 10;
+                postImage.layer.borderColor = [[UIColor blackColor] CGColor];
+                postImage.layer.borderWidth = 1;
+                postImage.layer.masksToBounds = YES;
                 [contentView addSubview:postImage];
             }
         }];
+        
+        UIButton *messageButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
+        [messageButton addTarget:self action:@selector(message:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UILabel *titleLable = [[UILabel alloc] initWithFrame:CGRectMake(13, 310, 275, 40)];
+        titleLable.text = [[self.objects objectAtIndex:self.objectIndex-1] objectForKey:@"title"];
+        titleLable.textAlignment = NSTextAlignmentCenter;
+        titleLable.font = [UIFont fontWithName:@"GillSans-Light" size:32]; //custom font
 
+        UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, 350, 275, 30)];
+        priceLabel.text = [[self.objects objectAtIndex:self.objectIndex-1] objectForKey:@"price"];
+        priceLabel.textAlignment = NSTextAlignmentCenter;
+        priceLabel.font = [UIFont fontWithName:@"Noteworthy-Light" size:24]; //custom font
+        priceLabel.textColor = [UIColor colorWithRed:0.0/255.0 green: 191.0/255.0 blue:143.0/255.0 alpha:1.0];
+        if([priceLabel.text isEqualToString:@"sold"])
+            priceLabel.textColor = [UIColor redColor];
+        [contentView addSubview:titleLable];
+        [contentView addSubview:priceLabel];
+        [contentView addSubview:messageButton];
+
+        titleLable.adjustsFontSizeToFitWidth = YES;
+        priceLabel.adjustsFontSizeToFitWidth = YES;
+        
         [view addSubview:contentView];
         
         //**********************
@@ -208,8 +246,37 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     query.limit = 250;
     // Final list of objects
     self.objects = [query findObjects];
+    
+    self.objectIndex = 0; 
     [self.swipeableView discardAllSwipeableViews];
     [self.swipeableView loadNextSwipeableViewsIfNeeded];
 
+}
+
+- (IBAction)reload:(id)sender {
+    [self loadObjects];
+}
+
+#pragma mark - Message
+
+//- (void)messengerURLHandler:(FBSDKMessengerURLHandler *)messengerURLHandler
+//  didHandleReplyWithContext:(FBSDKMessengerURLHandlerReplyContext *)context
+//{
+//    // Accessing the metadata that was originally sent with the content
+//    NSString *metadata = context.metadata;
+//    
+//    // IDs of the other users on the thread who are also logged into this app
+//    NSSet *userIds = context.userIDs;
+//    
+//}
+
+-(IBAction)message:(id)sender{
+
+    NSMutableString *mailTo = [NSMutableString stringWithString:@"mailto:"];
+    [mailTo appendString:[[self.objects objectAtIndex:self.objectIndex-1] objectForKey:@"email"]];
+    NSString *email = mailTo;
+    email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
+    
 }
 @end

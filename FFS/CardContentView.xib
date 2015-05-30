@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="skyline" translatesAutoresizingMaskIntoConstraints="NO" id="E3M-IA-JrC">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E3M-IA-JrC">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="311"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="E3M-IA-JrC" secondAttribute="height" multiplier="1:1" id="AhI-HG-ZfM"/>
@@ -94,7 +94,4 @@
             <point key="canvasLocation" x="421" y="489"/>
         </view>
     </objects>
-    <resources>
-        <image name="skyline" width="500" height="750"/>
-    </resources>
 </document>

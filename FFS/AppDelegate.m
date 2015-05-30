@@ -32,9 +32,13 @@
     [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     // [Optional] Track statistics around application opens.
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.0/255.0 green: 191.0/255.0 blue:143.0/255.0 alpha:1.0]];
+    //[[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:0.0/255.0 green: 191.0/255.0 blue:143.0/255.0 alpha:1.0]];
     
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
+    
+
     
     // ...
 
