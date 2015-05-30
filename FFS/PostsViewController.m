@@ -37,7 +37,7 @@ static CLLocation *location = nil;
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0/255.0 green: 191.0/255.0 blue:143.0/255.0 alpha:1.0];
     self.navigationController.navigationBar.topItem.title = @"f l e a k";
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Avenir" size:23.0]};
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor]; 
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.swipeableView.delegate = self;
     
     self.locationManager = [[CLLocationManager alloc] init];
@@ -49,10 +49,11 @@ static CLLocation *location = nil;
     [self.locationManager startUpdatingLocation];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
+    
     
     // Do any additional setup after loading the view.
 }
+
 
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];

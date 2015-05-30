@@ -12,7 +12,6 @@
 		D3163AE61B18179A00556628 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163AE51B18179A00556628 /* SecondViewController.m */; };
 		D3163AE91B18179A00556628 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3163AE71B18179A00556628 /* Main.storyboard */; };
 		D3163AEB1B18179A00556628 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3163AEA1B18179A00556628 /* Images.xcassets */; };
-		D3163AEE1B18179A00556628 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3163AEC1B18179A00556628 /* LaunchScreen.xib */; };
 		D3163AFA1B18179A00556628 /* FFSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163AF91B18179A00556628 /* FFSTests.m */; };
 		D3163B0E1B1818E200556628 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163B031B1818E200556628 /* AudioToolbox.framework */; };
 		D3163B0F1B1818E200556628 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163B041B1818E200556628 /* CFNetwork.framework */; };
@@ -62,7 +61,6 @@
 		D3163AE51B18179A00556628 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		D3163AE81B18179A00556628 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D3163AEA1B18179A00556628 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D3163AED1B18179A00556628 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D3163AF31B18179A00556628 /* FFSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FFSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3163AF81B18179A00556628 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3163AF91B18179A00556628 /* FFSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFSTests.m; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 				D3163B241B18289A00556628 /* HomeViewController.h */,
 				D3163B251B18289A00556628 /* HomeViewController.m */,
 				D3163AEA1B18179A00556628 /* Images.xcassets */,
-				D3163AEC1B18179A00556628 /* LaunchScreen.xib */,
 				D3163ADA1B18179A00556628 /* Supporting Files */,
 			);
 			path = FFS;
@@ -327,7 +324,6 @@
 			files = (
 				D3163B3F1B185F9500556628 /* CardContentView.xib in Resources */,
 				D3163AE91B18179A00556628 /* Main.storyboard in Resources */,
-				D3163AEE1B18179A00556628 /* LaunchScreen.xib in Resources */,
 				D3163AEB1B18179A00556628 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,14 +379,6 @@
 				D3163AE81B18179A00556628 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D3163AEC1B18179A00556628 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D3163AED1B18179A00556628 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -480,17 +468,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/vinhha/Downloads/parse-library-1.7.4",
 					"$(PROJECT_DIR)/FacebookSDK",
+					"$(PROJECT_DIR)/ParseLib",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FFS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FFS;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -499,17 +489,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/vinhha/Downloads/parse-library-1.7.4",
 					"$(PROJECT_DIR)/FacebookSDK",
+					"$(PROJECT_DIR)/PraseLib",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FFS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FFS;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -528,7 +520,7 @@
 				);
 				INFOPLIST_FILE = FFSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FFSTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FFS.app/FFS";
 			};
 			name = Debug;
@@ -543,7 +535,7 @@
 				);
 				INFOPLIST_FILE = FFSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FFSTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FFS.app/FFS";
 			};
 			name = Release;
