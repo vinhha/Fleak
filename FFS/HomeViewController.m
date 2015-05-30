@@ -49,11 +49,14 @@
 }
 
 - (PFQuery *) queryForTable {
-
+    if([PFUser currentUser]){
     PFQuery *posts = [PFQuery queryWithClassName:@"Posts"];
     [posts whereKey:@"Poster" equalTo:[[PFUser currentUser] objectId]];
 
     return posts;
+    }
+    else
+        return nil; 
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
