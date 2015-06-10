@@ -10,6 +10,7 @@
 #import "ZLSwipeableView.h"
 #import <FBSDKMessengerShareKit/FBSDKMessengerShareKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "CardView.h"
 #import "SecondViewController.h"
 
@@ -60,7 +61,7 @@ static CLLocation *location = nil;
     [_locationManager startUpdatingLocation];
 }
 
-- (void)viewDidLayoutSubviews {
+-(void)viewDidLayoutSubviews {
     // Required Data Source
     self.swipeableView.dataSource = self;
 }
@@ -130,6 +131,15 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
         PFFile *imageFile = [[self.objects objectAtIndex:self.objectIndex-1] objectForKey:@"file"];
         if (imageFile == nil) {
         }
+        
+        UILabel *titleLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 245, 275, 30)];
+        titleLable.text = [[self.objects objectAtIndex:self.objectIndex-1] objectForKey:@"title"];
+        titleLable.textColor = [UIColor whiteColor];
+        titleLable.textAlignment = NSTextAlignmentCenter;
+        titleLable.font = [UIFont fontWithName:@"GillSans" size:18]; //custom font
+        titleLable.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.50];
+        titleLable.adjustsFontSizeToFitWidth = YES;
+        
         [imageFile getDataInBackgroundWithBlock:^(NSData *result, NSError *error) {
             if (!error) {
                 UIImage *img = [UIImage imageWithData:result];
@@ -139,31 +149,82 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
                 postImage.layer.borderColor = [[UIColor blackColor] CGColor];
                 postImage.layer.borderWidth = 1;
                 postImage.layer.masksToBounds = YES;
+
+                [postImage addSubview:titleLable];
                 [contentView addSubview:postImage];
             }
         }];
         
-        UIButton *messageButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
-        [messageButton addTarget:self action:@selector(message:) forControlEvents:UIControlEventTouchUpInside];
+//        UIButton *messageButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
+//        [messageButton addTarget:self action:@selector(message:) forControlEvents:UIControlEventTouchUpInside];
         
-        UILabel *titleLable = [[UILabel alloc] initWithFrame:CGRectMake(13, 310, 275, 40)];
-        titleLable.text = [[self.objects objectAtIndex:self.objectIndex-1] objectForKey:@"title"];
-        titleLable.textAlignment = NSTextAlignmentCenter;
-        titleLable.font = [UIFont fontWithName:@"GillSans-Light" size:32]; //custom font
+        if ((int)[[UIScreen mainScreen] bounds].size.height == 480) {
+            
+            UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, 302, 275, 30)];
+            priceLabel.text = [[self.objects objectAtIndex:self.objectIndex-1] objectForKey:@"price"];
+            priceLabel.textAlignment = NSTextAlignmentCenter;
+            priceLabel.font = [UIFont fontWithName:@"Noteworthy" size:16]; //custom font
+            priceLabel.textColor = [UIColor colorWithRed:0.0/255.0 green: 191.0/255.0 blue:143.0/255.0 alpha:1.0];
 
-        UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, 350, 275, 30)];
-        priceLabel.text = [[self.objects objectAtIndex:self.objectIndex-1] objectForKey:@"price"];
-        priceLabel.textAlignment = NSTextAlignmentCenter;
-        priceLabel.font = [UIFont fontWithName:@"Noteworthy-Light" size:24]; //custom font
-        priceLabel.textColor = [UIColor colorWithRed:0.0/255.0 green: 191.0/255.0 blue:143.0/255.0 alpha:1.0];
-        if([priceLabel.text isEqualToString:@"sold"])
-            priceLabel.textColor = [UIColor redColor];
-        [contentView addSubview:titleLable];
-        [contentView addSubview:priceLabel];
-        [contentView addSubview:messageButton];
+            
+            UIButton *leftSwipe = [[UIButton alloc] initWithFrame:CGRectMake(13, 302, 35, 35)];
+            UIImage *leftSwipeButtonImage = [[UIImage imageNamed:@"back-arrow-7"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+            [leftSwipe setBackgroundImage:leftSwipeButtonImage forState:UIControlStateNormal];
+            leftSwipe.tintColor = [UIColor colorWithRed:0.0/255.0 green: 191.0/255.0 blue:143.0/255.0 alpha:1.0];
+            
+            UIButton *rightSwipe = [[UIButton alloc] initWithFrame:CGRectMake(253, 302, 35, 35)];
+            UIImage *rightSwipeButtonImage = [[UIImage imageNamed:@"forward-arrow-7"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+            [rightSwipe setBackgroundImage:rightSwipeButtonImage forState:UIControlStateNormal];
+            rightSwipe.tintColor = [UIColor colorWithRed:0.0/255.0 green: 191.0/255.0 blue:143.0/255.0 alpha:1.0];
+            
+//            UILabel *tapAnywhere = [[UILabel alloc] initWithFrame:CGRectMake(13, 321, 275, 25)];
+//            tapAnywhere.text = @"(tap for options)";
+//            tapAnywhere.textColor = [UIColor lightGrayColor];
+//            tapAnywhere.textAlignment = NSTextAlignmentCenter;
+//            tapAnywhere.font = [UIFont systemFontOfSize:10.0]; //custom font
+            
+            UIButton *options = [[UIButton alloc] initWithFrame:CGRectMake(105, 293, 90, 50)];
+            options.layer.borderWidth = 1.5f;
+            options.layer.borderColor = [UIColor colorWithRed:0.0/255.0 green: 191.0/255.0 blue:143.0/255.0 alpha:1.0].CGColor;
+            options.layer.cornerRadius = 10.0f;
+            
+            if([priceLabel.text isEqualToString:@"sold"]){
+                priceLabel.textColor = [UIColor redColor];
+                options.layer.borderColor = [UIColor redColor].CGColor;
+            }
 
-        titleLable.adjustsFontSizeToFitWidth = YES;
-        priceLabel.adjustsFontSizeToFitWidth = YES;
+            //UIButton *moreInfo = [UIButton alloc] initWithFrame:CGRectMake(13
+            //[contentView addSubview:titleLable];
+            [contentView addSubview:options];
+//            [contentView addSubview:tapAnywhere];
+            [contentView addSubview:priceLabel];
+            [contentView addSubview:leftSwipe];
+            [contentView addSubview:rightSwipe];
+        //    [contentView addSubview:messageButton];
+        
+            //titleLable.adjustsFontSizeToFitWidth = YES;
+            priceLabel.adjustsFontSizeToFitWidth = YES;
+        }
+        else {
+            UILabel *titleLable = [[UILabel alloc] initWithFrame:CGRectMake(13, 310, 275, 40)];
+            titleLable.text = [[self.objects objectAtIndex:self.objectIndex-1] objectForKey:@"title"];
+            titleLable.textAlignment = NSTextAlignmentCenter;
+            titleLable.font = [UIFont fontWithName:@"GillSans-Light" size:32]; //custom font
+
+            UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, 350, 275, 30)];
+            priceLabel.text = [[self.objects objectAtIndex:self.objectIndex-1] objectForKey:@"price"];
+            priceLabel.textAlignment = NSTextAlignmentCenter;
+            priceLabel.font = [UIFont fontWithName:@"Noteworthy-Light" size:24]; //custom font
+            priceLabel.textColor = [UIColor colorWithRed:0.0/255.0 green: 191.0/255.0 blue:143.0/255.0 alpha:1.0];
+            if([priceLabel.text isEqualToString:@"sold"])
+                priceLabel.textColor = [UIColor redColor];
+            [contentView addSubview:titleLable];
+            [contentView addSubview:priceLabel];
+           // [contentView addSubview:messageButton];
+
+            titleLable.adjustsFontSizeToFitWidth = YES;
+            priceLabel.adjustsFontSizeToFitWidth = YES;
+        }
         
         [view addSubview:contentView];
         
