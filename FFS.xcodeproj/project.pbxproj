@@ -24,21 +24,19 @@
 		D3163B161B1818E200556628 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163B0B1B1818E200556628 /* Security.framework */; };
 		D3163B171B1818E200556628 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163B0C1B1818E200556628 /* StoreKit.framework */; };
 		D3163B181B1818E200556628 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163B0D1B1818E200556628 /* SystemConfiguration.framework */; };
-		D3163B1C1B1819D800556628 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163B1A1B1819D800556628 /* Bolts.framework */; };
 		D3163B1D1B1819D800556628 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163B1B1B1819D800556628 /* Parse.framework */; };
 		D3163B261B18289A00556628 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163B251B18289A00556628 /* HomeViewController.m */; };
 		D3163B281B182DA300556628 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163B271B182DA300556628 /* ParseUI.framework */; };
 		D3163B2E1B183B4100556628 /* CreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163B2D1B183B4100556628 /* CreateProfileViewController.m */; };
-		D3163B361B184F5200556628 /* ZLPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163B331B184F5200556628 /* ZLPanGestureRecognizer.m */; };
-		D3163B371B184F5200556628 /* ZLSwipeableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163B351B184F5200556628 /* ZLSwipeableView.m */; };
-		D3163B3A1B184F7E00556628 /* PostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163B391B184F7E00556628 /* PostsViewController.m */; };
-		D3163B3D1B18504300556628 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3163B3C1B18504300556628 /* CardView.m */; };
-		D3163B3F1B185F9500556628 /* CardContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3163B3E1B185F9500556628 /* CardContentView.xib */; };
-		D3163CC71B1877D900556628 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163C381B1877D800556628 /* FBSDKCoreKit.framework */; };
-		D3163CC81B1877D900556628 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163C391B1877D800556628 /* FBSDKLoginKit.framework */; };
-		D3163CC91B1877D900556628 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163C3A1B1877D800556628 /* FBSDKShareKit.framework */; };
 		D3163CE41B18D47A00556628 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163CE31B18D47A00556628 /* ParseFacebookUtilsV4.framework */; };
 		D3163CE61B1955DD00556628 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3163CE51B1955DD00556628 /* FBSDKMessengerShareKit.framework */; };
+		D33C7A671BC74ECB0033B90A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D33C7A631BC74ECB0033B90A /* Bolts.framework */; };
+		D33C7A681BC74ECB0033B90A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D33C7A641BC74ECB0033B90A /* FBSDKCoreKit.framework */; };
+		D33C7A691BC74ECB0033B90A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D33C7A651BC74ECB0033B90A /* FBSDKLoginKit.framework */; };
+		D33C7A6A1BC74ECB0033B90A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D33C7A661BC74ECB0033B90A /* FBSDKShareKit.framework */; };
+		D373EAA91BE73AD00000B7EC /* postTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D373EAA81BE73AD00000B7EC /* postTextView.m */; };
+		D3FD08671BD3630100930780 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FD08661BD3630100930780 /* FeedViewController.m */; };
+		D3FD086B1BD45E6300930780 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FD086A1BD45E6300930780 /* PostCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,27 +73,24 @@
 		D3163B0B1B1818E200556628 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D3163B0C1B1818E200556628 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D3163B0D1B1818E200556628 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		D3163B1A1B1819D800556628 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Users/vinhha/Downloads/parse-library-1.7.4/Bolts.framework"; sourceTree = "<group>"; };
 		D3163B1B1B1819D800556628 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Users/vinhha/Downloads/parse-library-1.7.4/Parse.framework"; sourceTree = "<group>"; };
 		D3163B241B18289A00556628 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D3163B251B18289A00556628 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D3163B271B182DA300556628 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = "../../../Users/vinhha/Downloads/parse-library-1.7.4/ParseUI.framework"; sourceTree = "<group>"; };
 		D3163B2C1B183B4100556628 /* CreateProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateProfileViewController.h; path = ../CreateProfileViewController.h; sourceTree = "<group>"; };
 		D3163B2D1B183B4100556628 /* CreateProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateProfileViewController.m; path = ../CreateProfileViewController.m; sourceTree = "<group>"; };
-		D3163B321B184F5200556628 /* ZLPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLPanGestureRecognizer.h; sourceTree = "<group>"; };
-		D3163B331B184F5200556628 /* ZLPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLPanGestureRecognizer.m; sourceTree = "<group>"; };
-		D3163B341B184F5200556628 /* ZLSwipeableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLSwipeableView.h; sourceTree = "<group>"; };
-		D3163B351B184F5200556628 /* ZLSwipeableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSwipeableView.m; sourceTree = "<group>"; };
-		D3163B381B184F7E00556628 /* PostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsViewController.h; sourceTree = "<group>"; };
-		D3163B391B184F7E00556628 /* PostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsViewController.m; sourceTree = "<group>"; };
-		D3163B3B1B18504300556628 /* CardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
-		D3163B3C1B18504300556628 /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
-		D3163B3E1B185F9500556628 /* CardContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardContentView.xib; sourceTree = "<group>"; };
-		D3163C381B1877D800556628 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		D3163C391B1877D800556628 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		D3163C3A1B1877D800556628 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		D3163CE31B18D47A00556628 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		D3163CE51B1955DD00556628 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
+		D33C7A631BC74ECB0033B90A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		D33C7A641BC74ECB0033B90A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		D33C7A651BC74ECB0033B90A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		D33C7A661BC74ECB0033B90A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		D373EAA71BE73AD00000B7EC /* postTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = postTextView.h; sourceTree = "<group>"; };
+		D373EAA81BE73AD00000B7EC /* postTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = postTextView.m; sourceTree = "<group>"; };
+		D3FD08651BD3630100930780 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		D3FD08661BD3630100930780 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		D3FD08691BD45E6300930780 /* PostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
+		D3FD086A1BD45E6300930780 /* PostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,24 +99,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3163B0E1B1818E200556628 /* AudioToolbox.framework in Frameworks */,
-				D3163CC71B1877D900556628 /* FBSDKCoreKit.framework in Frameworks */,
 				D3163B0F1B1818E200556628 /* CFNetwork.framework in Frameworks */,
+				D33C7A691BC74ECB0033B90A /* FBSDKLoginKit.framework in Frameworks */,
+				D33C7A681BC74ECB0033B90A /* FBSDKCoreKit.framework in Frameworks */,
 				D3163CE61B1955DD00556628 /* FBSDKMessengerShareKit.framework in Frameworks */,
-				D3163CC91B1877D900556628 /* FBSDKShareKit.framework in Frameworks */,
 				D3163B281B182DA300556628 /* ParseUI.framework in Frameworks */,
-				D3163CC81B1877D900556628 /* FBSDKLoginKit.framework in Frameworks */,
 				D3163B101B1818E200556628 /* CoreGraphics.framework in Frameworks */,
-				D3163B1C1B1819D800556628 /* Bolts.framework in Frameworks */,
 				D3163B111B1818E200556628 /* CoreLocation.framework in Frameworks */,
 				D3163B121B1818E200556628 /* libsqlite3.dylib in Frameworks */,
 				D3163B1D1B1819D800556628 /* Parse.framework in Frameworks */,
 				D3163B131B1818E200556628 /* libz.dylib in Frameworks */,
 				D3163B141B1818E200556628 /* MobileCoreServices.framework in Frameworks */,
+				D33C7A6A1BC74ECB0033B90A /* FBSDKShareKit.framework in Frameworks */,
 				D3163B151B1818E200556628 /* QuartzCore.framework in Frameworks */,
 				D3163CE41B18D47A00556628 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				D3163B161B1818E200556628 /* Security.framework in Frameworks */,
 				D3163B171B1818E200556628 /* StoreKit.framework in Frameworks */,
 				D3163B181B1818E200556628 /* SystemConfiguration.framework in Frameworks */,
+				D33C7A671BC74ECB0033B90A /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,19 +152,19 @@
 		D3163AD91B18179A00556628 /* FFS */ = {
 			isa = PBXGroup;
 			children = (
-				D3163B311B184F5200556628 /* ZLSwipeableView */,
 				D3163ADE1B18179A00556628 /* AppDelegate.h */,
 				D3163ADF1B18179A00556628 /* AppDelegate.m */,
-				D3163B381B184F7E00556628 /* PostsViewController.h */,
-				D3163B391B184F7E00556628 /* PostsViewController.m */,
-				D3163B3B1B18504300556628 /* CardView.h */,
-				D3163B3C1B18504300556628 /* CardView.m */,
+				D3FD08691BD45E6300930780 /* PostCell.h */,
+				D3FD086A1BD45E6300930780 /* PostCell.m */,
+				D3FD08651BD3630100930780 /* FeedViewController.h */,
+				D3FD08661BD3630100930780 /* FeedViewController.m */,
 				D3163AE41B18179A00556628 /* SecondViewController.h */,
 				D3163AE51B18179A00556628 /* SecondViewController.m */,
+				D373EAA71BE73AD00000B7EC /* postTextView.h */,
+				D373EAA81BE73AD00000B7EC /* postTextView.m */,
 				D3163B2C1B183B4100556628 /* CreateProfileViewController.h */,
 				D3163B2D1B183B4100556628 /* CreateProfileViewController.m */,
 				D3163AE71B18179A00556628 /* Main.storyboard */,
-				D3163B3E1B185F9500556628 /* CardContentView.xib */,
 				D3163B241B18289A00556628 /* HomeViewController.h */,
 				D3163B251B18289A00556628 /* HomeViewController.m */,
 				D3163AEA1B18179A00556628 /* Images.xcassets */,
@@ -207,13 +202,13 @@
 		D3163B191B1819AD00556628 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D33C7A631BC74ECB0033B90A /* Bolts.framework */,
+				D33C7A641BC74ECB0033B90A /* FBSDKCoreKit.framework */,
+				D33C7A651BC74ECB0033B90A /* FBSDKLoginKit.framework */,
+				D33C7A661BC74ECB0033B90A /* FBSDKShareKit.framework */,
 				D3163CE51B1955DD00556628 /* FBSDKMessengerShareKit.framework */,
 				D3163CE31B18D47A00556628 /* ParseFacebookUtilsV4.framework */,
-				D3163C381B1877D800556628 /* FBSDKCoreKit.framework */,
-				D3163C391B1877D800556628 /* FBSDKLoginKit.framework */,
-				D3163C3A1B1877D800556628 /* FBSDKShareKit.framework */,
 				D3163B271B182DA300556628 /* ParseUI.framework */,
-				D3163B1A1B1819D800556628 /* Bolts.framework */,
 				D3163B1B1B1819D800556628 /* Parse.framework */,
 				D3163B031B1818E200556628 /* AudioToolbox.framework */,
 				D3163B041B1818E200556628 /* CFNetwork.framework */,
@@ -228,17 +223,6 @@
 				D3163B0D1B1818E200556628 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D3163B311B184F5200556628 /* ZLSwipeableView */ = {
-			isa = PBXGroup;
-			children = (
-				D3163B321B184F5200556628 /* ZLPanGestureRecognizer.h */,
-				D3163B331B184F5200556628 /* ZLPanGestureRecognizer.m */,
-				D3163B341B184F5200556628 /* ZLSwipeableView.h */,
-				D3163B351B184F5200556628 /* ZLSwipeableView.m */,
-			);
-			path = ZLSwipeableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,7 +306,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3163B3F1B185F9500556628 /* CardContentView.xib in Resources */,
 				D3163AE91B18179A00556628 /* Main.storyboard in Resources */,
 				D3163AEB1B18179A00556628 /* Images.xcassets in Resources */,
 			);
@@ -342,15 +325,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3163B3D1B18504300556628 /* CardView.m in Sources */,
 				D3163AE61B18179A00556628 /* SecondViewController.m in Sources */,
 				D3163AE01B18179A00556628 /* AppDelegate.m in Sources */,
 				D3163ADD1B18179A00556628 /* main.m in Sources */,
-				D3163B371B184F5200556628 /* ZLSwipeableView.m in Sources */,
+				D373EAA91BE73AD00000B7EC /* postTextView.m in Sources */,
+				D3FD08671BD3630100930780 /* FeedViewController.m in Sources */,
 				D3163B2E1B183B4100556628 /* CreateProfileViewController.m in Sources */,
 				D3163B261B18289A00556628 /* HomeViewController.m in Sources */,
-				D3163B3A1B184F7E00556628 /* PostsViewController.m in Sources */,
-				D3163B361B184F5200556628 /* ZLPanGestureRecognizer.m in Sources */,
+				D3FD086B1BD45E6300930780 /* PostCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +453,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/vinhha/Downloads/parse-library-1.7.4",
@@ -492,6 +475,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/vinhha/Downloads/parse-library-1.7.4",

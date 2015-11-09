@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <Parse/Parse.h>
+#include "PostCell.h"
 
 @interface PostsViewController : UIViewController <UINavigationControllerDelegate, CLLocationManagerDelegate>
 
@@ -17,11 +18,11 @@
 @property (strong, nonatomic) PFGeoPoint *myLocation;
 +(CLLocation*)location;
 
+@property (strong, nonatomic) PostCell *cell;
+
 
 @property (strong, nonatomic) NSArray *objects;
 @property (nonatomic) NSUInteger objectIndex;
 -(void)loadObjects;
 
-- (IBAction)reload:(id)sender;
-- (IBAction)message:(id)sender;
 @end

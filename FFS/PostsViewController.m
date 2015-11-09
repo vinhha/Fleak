@@ -35,10 +35,12 @@ static CLLocation *location = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0/255.0 green: 191.0/255.0 blue:143.0/255.0 alpha:1.0];
-    self.navigationController.navigationBar.topItem.title = @"f l e a k";
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    UIImageView *navImage = [[UIImageView alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/2 - 16.5, 25, 33, 35)];
+    navImage.image = [UIImage imageNamed:@"bumblefleak-1"];
+    [self.navigationController.view addSubview:navImage];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Avenir" size:23.0]};
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];//colorWithRed:248.0/255.0 green: 231.0/255.0 blue:28.0/255.0 alpha:1.0];
     self.swipeableView.delegate = self;
     
     self.locationManager = [[CLLocationManager alloc] init];
@@ -48,9 +50,7 @@ static CLLocation *location = nil;
         [self.locationManager requestWhenInUseAuthorization];
     }
     [self.locationManager startUpdatingLocation];
-    
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
     // Do any additional setup after loading the view.
 }
@@ -59,6 +59,8 @@ static CLLocation *location = nil;
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [_locationManager startUpdatingLocation];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+
 }
 
 -(void)viewDidLayoutSubviews {
@@ -332,13 +334,4 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 //    
 //}
 
--(IBAction)message:(id)sender{
-
-    NSMutableString *mailTo = [NSMutableString stringWithString:@"mailto:"];
-    [mailTo appendString:[[self.objects objectAtIndex:self.objectIndex-1] objectForKey:@"email"]];
-    NSString *email = mailTo;
-    email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
-    
-}
 @end

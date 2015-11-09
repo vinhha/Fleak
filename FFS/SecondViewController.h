@@ -8,26 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-#import "PostsViewController.h"
+#import "FeedViewController.h"
 
-@interface SecondViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate>
 
-@property (strong, nonatomic) PostsViewController *posts;
+@interface SecondViewController : UIViewController <UINavigationControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *titulo;
+//@property (strong, nonatomic) PostsViewController *posts;
+@property (strong, nonatomic) IBOutlet UILabel *characterCount;
+@property (strong, nonatomic) IBOutlet UITextView *taskDesc;
 @property (strong, nonatomic) IBOutlet UITextField *price;
 - (IBAction)createPost:(id)sender;
 
-@property (strong, nonatomic) UIImagePickerController *imagePicker;
-@property (strong, nonatomic) UIImage *image;
-@property (strong, nonatomic) IBOutlet UIImageView *postPic;
-
-- (UIImage *)resizeImage:(UIImage *)image toWidth:(float)width andHeight:(float)height;
-
-
-@property (strong, nonatomic) CLLocationManager *locationManager;
+//@property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (strong, nonatomic) PFGeoPoint *myLocation;
+
+- (void)updateCharacterCount:(UITextView *)aTextView;
+- (void)textInputChanged:(NSNotification *)note;
 
 @end
 

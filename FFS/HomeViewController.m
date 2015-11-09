@@ -30,12 +30,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0/255.0 green: 191.0/255.0 blue:143.0/255.0 alpha:1.0];
-    self.navigationController.navigationBar.topItem.title = @"m y   p o s t s";
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Avenir" size:23.0]};
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.topItem.title = @"p o s t s";
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:80.0/255.0 green: 227.0/255.0 blue:194.0/255.0 alpha:1.0], NSFontAttributeName: [UIFont fontWithName:@"Avenir" size:23.0]};
     // Do any additional setup after loading the view.
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+}
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
     
